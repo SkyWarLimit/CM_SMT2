@@ -42,7 +42,6 @@ public class AntrianPasien {
         }
     }
 
-    // Method to count the number of patients in the queue
     public int antrianSize() {
         int count = 0;
         NodePasien current = head;

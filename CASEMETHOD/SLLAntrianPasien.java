@@ -15,6 +15,7 @@ public class SLLAntrianPasien {
             tail.next = ndpasien;
             tail = ndpasien;
         }
+        System.out.println(">> Pasien masuk ke dalam antrian");
     }
 
     public Pasien layaniPasien(){

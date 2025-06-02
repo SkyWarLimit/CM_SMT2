@@ -6,7 +6,6 @@ public class Main {
         SLLAntrianPasien antrian = new SLLAntrianPasien();
         QueueTransaksi riwayat = new QueueTransaksi(100);
         int pilihan;
-        Pasien pasien = null; // Declare pasien outside the switch
 
 
       do {
@@ -19,7 +18,7 @@ public class Main {
             System.out.println("0. Keluar");
             System.out.print("Masukkan pilihan Anda: ");
             pilihan = sc.nextInt();
-            sc.nextLine(); // Bersihkan newline
+            sc.nextLine();
 
             switch (pilihan) {
                 case 1:
@@ -57,14 +56,13 @@ public class Main {
                         String namaDokter = sc.nextLine();
                         System.out.print("Masukkan durasi layanan (jam) : ");
                         int durasiLayanan = sc.nextInt();
-                        sc.nextLine(); // Bersihkan newline
+                        sc.nextLine();
 
                         Dokter dokter = new Dokter(idDokter, namaDokter);
-                        Transaksi transaksi = new Transaksi(pasienDilayani, dokter, durasiLayanan, 50000);
+                        Transaksi transaksi = new Transaksi(pasienDilayani, dokter, durasiLayanan,50000);
                         transaksi.hitungBiaya();
 
                         riwayat.enqueue(transaksi);
-                        System.out.println("Pasien telah dilayani, transaksi telah dicatat.");
                     }
                     break;
 
@@ -73,7 +71,7 @@ public class Main {
                     if (antrian.isEmpty()) {
                         System.out.println("Antrian kosong.");
                     } else {
-                        System.out.println("terdapat pasien dalam antrian: " + antrian.cekJumlahAntrian());
+                        System.out.println(">>sisa pasien dalam antrian: " + antrian.cekJumlahAntrian());
                     }
                     break;
 
