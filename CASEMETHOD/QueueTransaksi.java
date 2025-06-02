@@ -38,8 +38,7 @@ public class QueueTransaksi {
     System.out.println("=== Riwayat Transaksi ===");
     for (int i = 0; i < size; i++) {
         int idx = (front + i) % riwayatTransaksi.length;
-        System.out.println((i + 1) + ".");
-        riwayatTransaksi[idx].tampilkanInformasi(); // tampilkan isi transaksi
+        riwayatTransaksi[idx].tampilkanTransaksi(); // tampilkan isi transaksi
     }
 }
 }

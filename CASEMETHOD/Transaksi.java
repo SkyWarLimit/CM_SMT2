@@ -14,6 +14,10 @@ public class Transaksi {
     }
     
     public int hitungBiaya(){
-        return durasiLayanan * biaya;
+        return durasiLayanan * 50000;
+    }
+
+    void tampilkanTransaksi() {
+        System.out.println(pasien.nama +  " (" + durasiLayanan + " jam)" + ": Rp " + biaya);
     }
 }

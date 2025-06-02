@@ -50,7 +50,7 @@ public class Main {
                         System.out.println("Tidak ada pasien dalam antrian.");
                     } else {
                         Pasien pasienDilayani = antrian.layaniPasien();
-
+                        System.out.println("Pasien yang dilayani: " + pasienDilayani.nama);
                         System.out.print("Masukkan ID Dokter : ");
                         String idDokter = sc.nextLine();
                         System.out.print("Masukkan nama dokter : ");
@@ -64,6 +64,7 @@ public class Main {
                         transaksi.hitungBiaya();
 
                         riwayat.enqueue(transaksi);
+                        System.out.println("Pasien telah dilayani, transaksi telah dicatat.");
                     }
                     break;
 
@@ -77,7 +78,6 @@ public class Main {
                     break;
 
                 case 5:
-                    System.out.println("\n=== Riwayat Transaksi ===");
                     riwayat.tampilkanRiwayat();
                     break;
 
