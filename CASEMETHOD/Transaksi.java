@@ -1,17 +1,19 @@
 package CASEMETHOD;
 public class Transaksi {
-    String namaPasien;
-    String idDokter;
-    String namaDokter;
-    double durasiLayanan;
-    double biayaLayanan;
-    double TARIF_PER_JAM = 50000;
+    Pasien pasien;
+    Dokter dokter;
+    int durasiLayanan;
+    int biaya = 50000;
+
+    public Transaksi(Pasien pasien, Dokter dokter, int durasiLayanan, int biaya) {
+        this.pasien = pasien;
+        this.dokter = dokter;
+        this.durasiLayanan = durasiLayanan;
+        this.biaya = hitungBiaya();
     
-    public void tampilkanDetailTransaksi() {
-        System.out.println("Nama Pasien: " + namaPasien);
-        System.out.println("ID Dokter: " + idDokter);
-        System.out.println("Nama Dokter: " + namaDokter);
-        System.out.println("Durasi Layanan: " + durasiLayanan + " jam");
-        System.out.println("Biaya Layanan: Rp " + String.format("%.0f", biayaLayanan));
+    }
+    
+    public int hitungBiaya(){
+        return durasiLayanan * biaya;
     }
 }
