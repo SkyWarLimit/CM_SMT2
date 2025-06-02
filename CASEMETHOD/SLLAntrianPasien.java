@@ -33,7 +33,7 @@ public class SLLAntrianPasien {
         if (!isEmpty()) {
             NodePasien current = head;
             System.out.println("Daftar Antrian");
-            while (tail != null) {
+            while (current != null) {
                 current.data.tampilkanInformasi();
                 current = current.next;
             }

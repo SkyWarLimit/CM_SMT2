@@ -4,6 +4,10 @@ public class QueueTransaksi {
     Transaksi [] riwayatTransaksi;
     int front, rear, size,max;
 
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
     public QueueTransaksi(int n){
         max = n;
         riwayatTransaksi = new Transaksi[max];
@@ -12,23 +16,30 @@ public class QueueTransaksi {
     }
 
     public void enqueue(Transaksi t) {
-        if (size == riwayatTransaksi.length) {
+        if (size == max) {
             System.out.println("Riwayat transaksi penuh.");
             return;
         }
+        if (isEmpty()) {
+            front = rear = 0;
+        }
+        else {
+            rear = (rear + 1) % max;
+        }
         riwayatTransaksi[rear] = t;
-        rear = (rear + 1) % riwayatTransaksi.length;
         size++;
     }
 
     public void tampilkanRiwayat() {
-        if (size == 0) {
-            System.out.println("Belum ada transaksi.");
-            return;
-        }
-        for (int i = 0; i < size; i++) {
-            int idx = (front + i) % riwayatTransaksi.length;
-            System.out.println((i + 1) + ". " + riwayatTransaksi[idx]);
-        }
+    if (size == 0) {
+        System.out.println("Belum ada transaksi.");
+        return;
     }
+    System.out.println("=== Riwayat Transaksi ===");
+    for (int i = 0; i < size; i++) {
+        int idx = (front + i) % riwayatTransaksi.length;
+        System.out.println((i + 1) + ".");
+        riwayatTransaksi[idx].tampilkanInformasi(); // tampilkan isi transaksi
+    }
+}
 }

@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        AntrianPasien antrian = new AntrianPasien();
-        RiwayatTransaksi riwayat = new RiwayatTransaksi(100);
+        SLLAntrianPasien antrian = new SLLAntrianPasien();
+        QueueTransaksi riwayat = new QueueTransaksi(100);
         int pilihan;
         Pasien pasien = null; // Declare pasien outside the switch
 
@@ -32,7 +32,7 @@ public class Main {
                     String keluhanPasien = sc.nextLine();
 
                     Pasien p = new Pasien(namaPasien, nikPasien, keluhanPasien);
-                    antrian.tambahPasien(pasien);
+                    antrian.tambahAntrian(p);
                     break;
 
                 case 2:
@@ -62,8 +62,8 @@ public class Main {
                         Dokter dokter = new Dokter(idDokter, namaDokter);
                         Transaksi transaksi = new Transaksi(pasienDilayani, dokter, durasiLayanan, 50000);
                         transaksi.hitungBiaya();
-                        riwayat.tambahTransaksi(transaksi);
-                        
+
+                        riwayat.enqueue(transaksi);
                     }
                     break;
 
@@ -72,7 +72,7 @@ public class Main {
                     if (antrian.isEmpty()) {
                         System.out.println("Antrian kosong.");
                     } else {
-                        System.out.println("terdapat pasien dalam antrian ");
+                        System.out.println("terdapat pasien dalam antrian: " + antrian.cekJumlahAntrian());
                     }
                     break;
 
