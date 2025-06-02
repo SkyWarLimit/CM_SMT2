@@ -3,7 +3,7 @@ public class Transaksi {
     Pasien pasien;
     Dokter dokter;
     int durasiLayanan;
-    int biaya = 50000;
+    int biaya;
 
     public Transaksi(Pasien pasien, Dokter dokter, int durasiLayanan, int biaya) {
         this.pasien = pasien;
@@ -14,6 +14,6 @@ public class Transaksi {
     }
     
     public int hitungBiaya(){
-        return durasiLayanan * biaya;
+        return durasiLayanan * 50000;
     }
 }
